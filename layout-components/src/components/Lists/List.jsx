@@ -1,9 +1,15 @@
-const List = ({ items, sourceName, ItemComponent }) => {
+const List = ({ items, sourceName, ItemComponent, numbered = false }) => {
   return (
     <>
-      {items.map((item) => {
-        // Is equivalent to this: <ItemComponent key={item.id} author={item} />;
-        return <ItemComponent key={item.id} {...{ [sourceName]: item }} />;
+      {items.map((item, i) => {
+        return numbered ? (
+          <div key={item.id}>
+            <h3>{i + 1}</h3>
+            <ItemComponent {...{ [sourceName]: item }} />
+          </div>
+        ) : (
+          <ItemComponent key={item.id} {...{ [sourceName]: item }} />
+        );
       })}
     </>
   );

@@ -11,6 +11,7 @@ export { default as BookLargeListItems } from './Book/BookLargeListItems';
 export { default as BookSmallListItems } from './Book/BookSmallListItems';
 
 export { default as Lists } from './Lists/List';
+export { default as NumberedList } from './Lists/NumberedList';
 
 /* ------------------- MODALS ---------------------------- */
 // export { default as LargeListItems } from './Modals/LargeListItems';
