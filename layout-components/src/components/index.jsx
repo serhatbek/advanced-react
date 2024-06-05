@@ -14,7 +14,6 @@ export { default as Lists } from './Lists/List';
 export { default as NumberedList } from './Lists/NumberedList';
 
 /* ------------------- MODALS ---------------------------- */
-// export { default as LargeListItems } from './Modals/LargeListItems';
-// export { default as SmallListItems } from './Modals/SmallListItems';
+export { default as Modal } from './Modals/Modal';
 
 //SECTION - CONTAINER COMPONENTS

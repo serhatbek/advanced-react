@@ -3,6 +3,7 @@ import {
   AuthorSmallListItems,
   BookLargeListItems,
   BookSmallListItems,
+  Modal,
   NumberedList,
   SplitScreen,
   SplitScreen2,
@@ -32,7 +33,7 @@ function App() {
     <>
       {/* SplitScreen --------------------------------------------------------- */}
       {/* //NOTE - Komponentleri prop olarak verdiğimizde gerektiğinde kendilerine prop ekleyemiyoruz. */}
-      <SplitScreen
+      {/* <SplitScreen
         Left={LeftSideComp}
         Right={RightSideComp}
         leftWidth={1}
@@ -42,11 +43,11 @@ function App() {
       <SplitScreen2>
         <LeftSideComp leftWidth={3} title={"I'm left side"} />
         <RightSideComp rightWidth={1} title={"I'm right side."} />
-      </SplitScreen2>
+      </SplitScreen2> */}
 
       {/* Lists ---------------------------------------------------------------------- */}
 
-      <List
+      {/* <List
         ItemComponent={AuthorSmallListItems}
         sourceName='author'
         items={authors}
@@ -75,7 +76,7 @@ function App() {
         sourceName='book'
         items={books}
         numbered={true}
-      />
+      /> */}
 
       {/* <NumberedList
         ItemComponent={BookLargeListItems}
@@ -84,6 +85,10 @@ function App() {
       /> */}
 
       {/* Modals ------------------------------------------------------------------- */}
+
+      <Modal>
+        <BookLargeListItems book={books[0]} />
+      </Modal>
     </>
   );
 }
