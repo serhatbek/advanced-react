@@ -1,8 +1,19 @@
+import axios from 'axios';
 import BookInfo from './components/BookInfo';
 import CurrentUserLoader from './components/CurrentUserLoader/CurrentUserLoader';
 import UserInfo from './components/UserInfo';
+import DataLoader from './components/data-source';
 import ResourceLoader from './components/resource-loader';
 import UserLoader from './components/user-loader';
+
+const getDataFromServer = async (url) => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching current user:', error);
+  }
+};
 
 function App() {
   return (
@@ -27,6 +38,20 @@ function App() {
       <ResourceLoader resourceName={'book'} resourceUrl={'/books/2'}>
         <BookInfo />
       </ResourceLoader>
+
+      <DataLoader
+        resourceName={'user'}
+        getData={() => getDataFromServer('/users/3')}
+      >
+        <UserInfo />
+      </DataLoader>
+
+      <DataLoader
+        resourceName={'book'}
+        getData={() => getDataFromServer('/books/3')}
+      >
+        <BookInfo />
+      </DataLoader>
     </>
   );
 }
