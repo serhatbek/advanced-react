@@ -5,6 +5,7 @@ import UserInfo from './components/UserInfo';
 import DataLoader from './components/data-source';
 import ResourceLoader from './components/resource-loader';
 import UserLoader from './components/user-loader';
+import DataSourceWithRenderProps from './components/data-source-with-render-props';
 
 const getDataFromServer = async (url) => {
   try {
@@ -31,7 +32,7 @@ function App() {
         <UserInfo />
       </UserLoader> */}
 
-      <ResourceLoader resourceName={'user'} resourceUrl={'/users/2'}>
+      {/* <ResourceLoader resourceName={'user'} resourceUrl={'/users/2'}>
         <UserInfo />
       </ResourceLoader>
 
@@ -51,7 +52,12 @@ function App() {
         getData={() => getDataFromServer('/books/3')}
       >
         <BookInfo />
-      </DataLoader>
+      </DataLoader> */}
+
+      <DataSourceWithRenderProps
+        getData={() => getDataFromServer('/users/3')}
+        render={(resource) => <UserInfo user={resource} />}
+      ></DataSourceWithRenderProps>
     </>
   );
 }

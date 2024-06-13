@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const DataLoader = ({ children, resourceName, getData = () => {} }) => {
+const DataSourceWithRenderProps = ({ getData = () => {}, render }) => {
   const [resource, setResource] = useState(null);
 
   useEffect(() => {
@@ -14,16 +14,7 @@ const DataLoader = ({ children, resourceName, getData = () => {} }) => {
     })();
   }, [getData]);
 
-  return (
-    <>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, { [resourceName]: resource });
-        }
-        return child;
-      })}
-    </>
-  );
+  return render(resource);
 };
 
-export default DataLoader;
+export default DataSourceWithRenderProps;
