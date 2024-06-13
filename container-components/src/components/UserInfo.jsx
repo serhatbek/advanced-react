@@ -1,4 +1,4 @@
-const UserInfo = ({ book }) => {
+const UserInfo = ({ user }) => {
   const { name, age, country, books } = user || {};
   return user ? (
     <div>
