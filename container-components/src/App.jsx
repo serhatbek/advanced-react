@@ -65,6 +65,11 @@ function App() {
         render={(resource) => <UserInfo user={resource} />}
       ></DataSourceWithRenderProps>
 
+      <DataSourceWithRenderProps
+        getData={() => getDataFromServer('/books/3')}
+        render={(resource) => <BookInfo book={resource} />}
+      ></DataSourceWithRenderProps>
+
       <DataLoader
         resourceName={'msg'}
         getData={() => getDataFromLocalStorage('test')}
